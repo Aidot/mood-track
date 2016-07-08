@@ -1,0 +1,62 @@
+<ion-view view-title="记录心情" >
+
+	<ion-nav-buttons side="secondary" >
+			<button class="button button-icon ion-camera"
+			        ng-click="addPicture()" >
+			</button >
+	</ion-nav-buttons >
+
+	<ion-content >
+		<form name="createForm"
+		      novalidate=""
+		      ng-submit="trackMood(createForm)">
+			<ion-list >
+
+				<!-- Title -->
+				<label class="item item-input item-stacked-label"
+				       ng-class="{'has-error':createForm.title.$invalid}" >
+					<span class="input-label" >说些什么？</span >
+					<input type="text"
+					       placeholder=""
+					       name="title"
+					       ng-model="formData.title"
+					       ng-required="true" >
+				</label >
+				<div class="form-errors"
+				     ng-messages="createForm.title.$error"
+				     ng-messages-include="templates/form-errors.html" >
+				</div >
+
+				<!-- Rate -->
+				<label class="item item-input item-stacked-label"
+				       ng-class="{'has-error':createForm.price.$invalid}" >
+					<span class="input-label" >心情
+					</span >
+					<span class="calories" >{{formData.rate}} 分</span >
+
+					<div class="range range-royal" >
+						<input type="range"
+						       ng-model="formData.rate"
+						       name="rate"
+						       step="1"
+						       min="0"
+						       max="10"
+						       value="5" >
+					</div >
+				</label >
+			</ion-list >
+
+			<div class="padding" ng-show="formData.picture">
+				<div class="item item-image">
+					<img ng-src="data:image/jpeg;base64,{{formData.picture}}" alt="" />
+				</div >
+			</div>
+
+
+
+			<div class="padding" >
+				<button class="button button-positive button-block" type="submit" >发表</button >
+			</div >
+		</form >
+	</ion-content >
+</ion-view >

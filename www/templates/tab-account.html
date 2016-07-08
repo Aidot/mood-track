@@ -1,0 +1,78 @@
+<ion-view cache-view="false" view-title="账号管理">
+  <ion-nav-buttons side="secondary" >
+    <button class="button button-icon ion-log-out" ng-click="logout()" ></button>
+  </ion-nav-buttons >
+
+  <ion-content class="has-header">
+
+    	<form name="signupForm" novalidate="" ng-submit="submit(signupForm)">
+      <div class="list">
+
+        <div class="item item-avatar" >
+  	      <img ng-src="{{formData.picture.url() || 'img/default-avatar.gif'}}">
+  	      <h2>{{formData.name}}</h2>
+  	      <p>{{formData.email}}</p>
+					<span class="input-group-btn">
+	        	<button type="button" class="button button-small button-outline" name="picture" ng-model="formData.picture" ng-class="{ 'photo-active': formData.picture.url() }"
+	          ngf-select="uploadImageOne($file)" ngf-max-size="2MB" ngf-pattern="'image/*'" accept="image/*"> 上传头像</button>
+	        </span>
+  			</div>
+
+        <div class="item item-divider">基本资料</div>
+        <div class="item item-input">
+          <label class="input-label">手机</label>
+          <input type="number"
+                 placeholder=""
+                 name="mobile"
+                 ng-model="formData.mobile"
+                 ng-required="true" />
+        </div>
+        <div class="item item-input">
+          <label class="input-label">简介</label>
+          <input type="text"
+                 placeholder="BIO"
+                 name="bio"
+                 ng-model="formData.bio"
+                 ng-required="true" >
+      	</div>
+
+				<div class="item item-divider">认证信息</div>
+
+        <div class="item item-input">
+          <label class="input-label">真实姓名</label>
+          <input type="text" placeholder="与认证资料一致" name="real_name" ng-model="formData.real_name" />
+        </div>
+        <div class="item item-input">
+          <label class="input-label">身份证号</label>
+          <input type="text" placeholder="与认证资料一致" name="real_id" ng-model="formData.real_id" />
+        </div>
+
+        <!-- Level -->
+				<div class="item item-input item-select">
+					<label class="input-label">认证名称</label>
+					<select name="level" ng-model="formData.level">
+						<option value="0">请选择</option>
+						<option value="1">倾听者</option>
+						<option value="2">三级咨询师</option>
+						<option value="3">二级咨询师</option>
+					</select >
+				</div>
+        <div class="item item-input">
+          <label class="input-label">证书编号</label>
+          <input type="text" placeholder="与认证资料一致" name="level_id" ng-model="formData.level_id" />
+        </div>
+        <div class="item item-input">
+          <label class="input-label">上传证书图片</label>
+          <button type="button" class="button button-small button-outline" ng-click="addLevelPicture()"> <i class="ion-camera"></i> 拍照上传 </button>
+        </div>
+
+      </div>
+
+      <div class="padding">
+      	<button class="button button-positive button-block" type="submit" >保存</button>
+      </div>
+    </form>
+
+  </ion-content >
+
+</ion-view>

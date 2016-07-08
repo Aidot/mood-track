@@ -1,0 +1,49 @@
+/* Empty. Add your own CSS if you like */
+.mood-time {
+  font-size: 10px;
+}
+#print-wall p {
+	font-size: 11px;
+}
+.text-center {
+  text-align: center;
+}
+.msg {
+  font-size: 14px;
+  color: #000;
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 6px 9px;
+  margin: 4px auto;
+  border-radius: 6px;
+  background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+  background-position: bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+.mymsg {
+  text-align: right;
+}
+.mymsg .msg {
+  border-color: #0a9dc7;
+  background-color: #11c1f3;
+  background-image: linear-gradient(0deg, #0a9dc7, #0a9dc7 50%, transparent 50%);
+  color: #fff;
+}
+.messages p b {
+  display: block;
+}
+.messages p em {
+  display: block;
+  color: #999;
+  display: none;
+}
+.level_1 i {
+  color: #33cd5f;
+}
+.level_2 i {
+  color: #ef473a;
+}
+.level_3 i {
+  color: #886aea;
+}

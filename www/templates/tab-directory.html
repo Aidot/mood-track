@@ -1,0 +1,26 @@
+<ion-view view-title="实用查询">
+  <ion-content>
+		<ion-refresher
+				pulling-text="下啦刷新..."
+				on-refresh="refreshItems()" >
+		</ion-refresher >
+    <div class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="输入关键字查询" ng-model="query.keyword" ng-model-options="{ debounce: 1000 }" ng-change="onSearch()" />
+      </label>
+    </div>
+		<div class="list">
+			<ion-item class="item-icon-right" ng-repeat="item in directory.results" href="#/tab/directory/{{item.id}}">
+				<h2 >{{item.attributes.title}}</h2 >
+				<p>{{item.attributes.description}}</p>
+				<i class="icon ion-chevron-right icon-accessory"></i>
+			</ion-item>
+		</div>
+
+		<ion-infinite-scroll ng-if="item.hasMore" on-infinite="nextPage()" immediate-check="false" ></ion-infinite-scroll>
+
+		<div class="padding text-center" ng-if="!item.hasMore" ><p >No more results</p ></div >
+
+	</ion-content>
+	
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view view-title="我的记录" >
+	<ion-nav-buttons side="secondary" >
+    <button class="button button-icon ion-ios-compose-outline" ng-click="addMood()" ></button>
+  </ion-nav-buttons>
+
+	<ion-content>
+		<ion-refresher
+				pulling-text="下拉刷新..."
+				on-refresh="refreshItems()" >
+		</ion-refresher >
+
+		<div class="list">
+
+			<div class="item" ng-repeat="mood in moods.results">
+			  <span class="badge badge-energized">
+			    {{mood.attributes.rate}}&nbsp;<i class="ion-ios-heart"></i>
+			  </span>
+			  <p class="mood-time">
+					<!-- {{meal.attributes.created | mealtime}} -  -->
+					<i class="ion-ios-clock-outline"></i> <span am-time-ago="mood.attributes.created"></span>
+				</p>
+			  {{mood.attributes.title}}
+				<div class="item-image" ng-if="mood.attributes.picture" >
+				  <img ng-src="{{mood.attributes.picture.url()}}" >
+			  </div >
+			</div >
+		</div >
+
+
+		<ion-infinite-scroll ng-if="mood.hasMore" on-infinite="nextPage()" immediate-check="false" >
+    </ion-infinite-scroll >
+
+		<div class="padding text-center" ng-if="!mood.hasMore" ><p>No more results</p ></div >
+
+	</ion-content >
+</ion-view >

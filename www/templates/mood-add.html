@@ -1,0 +1,54 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">记录心情</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAddMood()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+
+    <form name="createForm"
+		      novalidate=""
+		      ng-submit="trackMood(createForm)">
+			<ion-list >
+
+				<!-- Rate -->
+				<div class="item item-input item-stacked-label">
+					<label class="input-label" >心情</label>
+					<span class="badge badge-calm">{{formData.rate}} &nbsp; <i class="ion-ios-heart"></i></span>
+
+					<div class="range range-royal">
+						<input type="range"
+						       ng-model="formData.rate"
+						       name="rate"
+						       step="1"
+						       min="0"
+						       max="10"
+						       value="5" >
+					</div>
+				</div>
+
+        <!-- Title -->
+				<div class="item item-input item-stacked-label" ng-class="{'has-error':createForm.title.$invalid}" >
+					<label class="input-label" >说些什么？</label>
+					<input type="text" placeholder="" name="title" ng-model="formData.title" ng-required="true" />
+           <button class="button button-icon ion-camera" ng-click="addPicture()"></button>
+				</div >
+
+			</ion-list>
+
+			<div class="padding" ng-show="formData.picture">
+				<div class="item item-image">
+					<img ng-src="data:image/jpeg;base64,{{formData.picture}}" alt="" />
+				</div >
+			</div>
+
+			<div class="padding" >
+				<button class="button button-calm button-block" type="submit" >发表</button >
+			</div >
+		</form >
+
+
+  </ion-content>
+</ion-modal-view>

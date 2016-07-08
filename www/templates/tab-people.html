@@ -1,0 +1,25 @@
+<ion-view view-title="广场">
+  <ion-content>
+    <ion-refresher
+				pulling-text="下拉刷新"
+				on-refresh="refreshItems()" >
+		</ion-refresher >
+    <ion-list>
+      <a class="item item-avatar" ng-repeat="p in people.results">
+        <img ng-src="{{p.attributes.picture.url() || 'img/default-avatar.gif'}}">
+        <h2>{{p.attributes.name}}</h2>
+        <small ng-show="p.attributes.level > 0" class="level_{{p.attributes.level}}">
+          <i class="ion-ribbon-b"></i> {{p.attributes.level | levelName}}
+        </small>
+        <p>{{p.attributes.bio}}</p>
+      </a>
+    </ion-list>
+
+    <ion-infinite-scroll ng-if="people.hasMore" on-infinite="nextPage()" immediate-check="false"></ion-infinite-scroll >
+
+		<div class="padding text-center" ng-if="!people.hasMore">
+			<p >No more</p >
+		</div >
+		
+  </ion-content >
+</ion-view>

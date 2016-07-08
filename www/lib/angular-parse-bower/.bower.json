@@ -1,0 +1,33 @@
+{
+  "name": "angular-parse-bower",
+  "description": "Angular wrapper for Parse.com JavaScript SDK.",
+  "main": "src/index.js",
+  "authors": [
+    "<ivnivnch@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "parse",
+    "parsesdk"
+  ],
+  "homepage": "https://github.com/ivnivnch/angular-parse",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "version": "0.2.2",
+  "_release": "0.2.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.2",
+    "commit": "8fca942658d143391f5e90bc747c86ff1475ea10"
+  },
+  "_source": "git://github.com/ivnivnch/angular-parse.git",
+  "_target": "~0.2.2",
+  "_originalSource": "angular-parse-bower",
+  "_direct": true
+}

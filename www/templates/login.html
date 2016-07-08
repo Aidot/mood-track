@@ -1,0 +1,35 @@
+<ion-view view-title="登录">
+  <ion-content>
+    <ion-list>
+      <form ng-submit="login(loginForm)"
+  		      novalidate="novalidate"
+  		      name="loginForm" >
+      <label class="item item-input">
+        <span class="input-label">账号</span>
+        <input type="email"
+				       placeholder="Email"
+				       ng-model="formData.email"
+				       name="email"
+				       ng-required="true" >
+      </label>
+      <label class="item item-input">
+        <span class="input-label">密码</span>
+        <input type="password"
+					       placeholder=""
+					       ng-model="formData.password"
+					       name="password"
+					       ng-required="true"
+					       ng-minlength="6" >
+      </label>
+      <div class="padding">
+      	<button class="button button-block button-calm">登录</button>
+      </div>
+    </form>
+
+    <div class="text-center" >
+			还没有账号？
+			<div class="padding"><a class="button button-block button-stable" nav-direction="enter" ui-sref="register" >注册</a></div>
+		</div>
+    </ion-list>
+  </ion-content>
+</ion-view>
